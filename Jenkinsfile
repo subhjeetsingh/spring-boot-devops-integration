@@ -20,8 +20,8 @@ pipeline {
         stage('Push Docker Image to DockerHub'){
             steps{
                 script{
-                    withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubcreds')]) {
-                    bat 'docker login -u subhjeetsingh -p ${dockerhubcreds}'
+                    withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) {
+                    bat 'docker login -u subhjeetsingh -p ${dockerhubpwd}'
                     }
                     bat 'docker push subhjeetsingh/spring-boot-devops-integration'
                 }
