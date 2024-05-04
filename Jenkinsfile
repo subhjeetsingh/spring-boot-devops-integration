@@ -21,7 +21,7 @@ pipeline {
             steps{
                 script{
                     withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) {
-                    bat 'docker login -u subhjeetsingh -p "${dockerhubpwd}"'
+                    bat 'docker login -u subhjeetsingh -p \"${dockerhubpwd}\"'
                     }
                     bat 'docker push subhjeetsingh/spring-boot-devops-integration'
                 }
